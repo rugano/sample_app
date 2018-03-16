@@ -3,6 +3,9 @@ source 'https://rubygems.org'
 gem 'rails',          '5.1.4'
 gem 'bootstrap-sass', '3.3.7'
 
+gem 'rails',          '5.1.4'
+gem 'bcrypt',         '3.1.11'
+
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
