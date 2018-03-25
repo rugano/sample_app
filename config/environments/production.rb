@@ -48,6 +48,8 @@ Rails.application.configure do
   # config.force_ssl = true
   config.force_ssl = true
 
+  config.action_mailer.default_url_options = { :host => 'guarded-badlands-56215.heroku.com' }
+  
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
   config.log_level = :debug
