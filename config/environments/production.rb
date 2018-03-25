@@ -48,7 +48,19 @@ Rails.application.configure do
   # config.force_ssl = true
   config.force_ssl = true
 
-  config.action_mailer.default_url_options = { :host => 'guarded-badlands-56215.heroku.com' }
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  host = '<your heroku app>.herokuapp.com'
+  config.action_mailer.default_url_options = { host: host }
+  ActionMailer::Base.smtp_settings = {
+    :address        => 'smtp.sendgrid.net',
+    :port           => '587',
+    :authentication => :plain,
+    :user_name      => ENV['SENDGRID_USERNAME'],
+    :password       => ENV['SENDGRID_PASSWORD'],
+    :domain         => 'guarded-badlands-56215.herokuapp.com',
+    :enable_starttls_auto => true
+  }
   
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
